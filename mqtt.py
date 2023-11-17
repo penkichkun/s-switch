@@ -2,10 +2,20 @@
 # カズヤさんにもらったスマートスイッチを改造してみる
 # 2023-09-23 Nishijima
 #
-from machine import Pin, I2C, SoftI2C, Timer, reset
+import machine
+from machine import I2C, SoftI2C, Timer, reset
 import time
 
-BTN = Pin(0, Pin.IN, Pin.PULL_UP) # タクトスイッチ（モード設定用）
+LEDR = machine.Pin(13, machine.Pin.OUT) # 赤
+LEDR.value(1)
+LEDG = machine.Pin(12, machine.Pin.OUT) # 緑
+LEDG.value(1)
+LEDB = machine.Pin(14, machine.Pin.OUT) # 青
+LEDB.value(1)
+RELAY = machine.Pin(15, machine.Pin.OUT) # リレー
+
+
+BTN = machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_UP) # タクトスイッチ（モード設定用）
 BROKER = 'broker.emqx.io'
 
 import network
@@ -17,6 +27,7 @@ w = wificonf.Wificonf()
 essid, wifipass = w.get_essid_wifipass()
 
 def do_connect():
+    LEDB.value(0) # Wifi接続中はLEDBをON
     import network
     sta_if = network.WLAN(network.STA_IF)
     if not sta_if.isconnected():
@@ -28,20 +39,14 @@ def do_connect():
     print('network config:', sta_if.ifconfig())
 
 do_connect()
+LEDB.value(1)
 MAC = sta_if.config('mac').hex()
 import ntptime
 JST_OFFSET = 9 * 60 * 60 # JST = UTC + 9H(32400秒）
 ntptime.settime()
-import machine
+
 import ubinascii
 
-LEDR = machine.Pin(13, machine.Pin.OUT) # 赤
-LEDR.value(1)
-LEDG = machine.Pin(12, machine.Pin.OUT) # 緑
-LEDG.value(1)
-LEDB = machine.Pin(14, machine.Pin.OUT) # 青
-LEDB.value(1)
-RELAY = machine.Pin(15, machine.Pin.OUT) # リレー
 from umqtt.simple import MQTTClient
 
 def sub_cb(topic, msg):
@@ -83,3 +88,4 @@ while True:
         cl.ping() # タイムアウトする前にピンを打っとく
         j = 0
 cl.disconnect()
+
