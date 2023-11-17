@@ -2,7 +2,7 @@
 
 カズヤさんにもらったスマートスイッチ
 https://eiwa-up.jp/product/cloud-computing/smart-switch/
-ESP8266 を使っているので、これに MicroPython を載せて、MQTTで使えるように改造してみる（テスト）。
+ESP8266 を使っているので、これに MicroPython を載せて、MQTTで使えるように改造してみる（テスト）。<bR>
 とりあえず、BROKER = 'broker.emqx.io' に決め打ち
 2023-09-23 Nishijima
 スマートスイッチのハードは
