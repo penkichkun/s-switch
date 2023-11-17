@@ -9,7 +9,7 @@ import time
 import random
 rand = f"{random.getrandbits(8):03d}"
 
-gc.collect()
+#gc.collect()
 
 header = """<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -45,7 +45,7 @@ def web_page_main(): # メインメニュー
 
 
 def web_page_showconf(): # 設定情報の表示ページ
-    gc.collect()
+    #gc.collect()
     import wificonf
     wificonf = wificonf.Wificonf()
     essid, wifipass = wificonf.get_essid_wifipass()
@@ -64,7 +64,7 @@ def web_page_showconf(): # 設定情報の表示ページ
     return html
 
 def web_page_wificonf(): # WIFI設定入力ページ
-    gc.collect()
+    #gc.collect()
     html = "<html>"
     html += header
     html += "<body><h1>DIY農業</h1>"
@@ -81,7 +81,7 @@ def web_page_wificonf(): # WIFI設定入力ページ
     return html
 
 def web_page_showSta(Sta_ip): # sta_if IPアドレス表示
-    gc.collect()
+    #gc.collect()
     html = "<html>"
     html += header
     html += "<body><h1>スマートスイッチ</h1>"
@@ -96,7 +96,7 @@ def web_page_showSta(Sta_ip): # sta_if IPアドレス表示
     return html
 
 def web_page_notconnected(): # sta_if つながらない
-    gc.collect()
+    #gc.collect()
     html = "<html>"
     html += header
     html += "<body><h1>スマートスイッチ</h1>"
@@ -109,7 +109,7 @@ def web_page_notconnected(): # sta_if つながらない
     return html
 
 def web_page_reset(): # reset表示ページ
-    gc.collect()
+    #gc.collect()
     html = "<html>"
     html += header
     html += "<body><h1>スマートスイッチ</h1>"
@@ -192,3 +192,4 @@ def main():
         conn.send('Connection: close\n\n')
         conn.sendall(response)
         conn.close()
+
