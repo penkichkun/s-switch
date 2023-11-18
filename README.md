@@ -1,10 +1,10 @@
 # s-switch
 
-カズヤさんにもらったスマートスイッチ
-https://eiwa-up.jp/product/cloud-computing/smart-switch/<br>
-ESP8266 を使っているので、これに MicroPython を載せて、MQTTで使えるように改造してみる（テスト）。<bR>
+大阪デジモク会で、カズヤさんにスマートスイッチもらったんで、ちょっと改造してみました。<br>
+これ、ESP8266 を使っているので、MicroPython を載せて、MQTTで使えるように改造。<br>
 とりあえず、BROKER = 'broker.emqx.io' に決め打ち<br>
 2023-09-23 Nishijima<br>
+
 # ハード
 BTN = machine.Pin(0, Pin.IN, Pin.PULL_UP) # タクトスイッチ（モード設定用）<br>
 LEDR = machine.Pin(13, machine.Pin.OUT) # 赤<br>
@@ -18,6 +18,6 @@ RELAY = machine.Pin(15, machine.Pin.OUT) # リレー<br>
 使用する環境に合わせて、wifiとパスワードを設定します。<br>
 MQTTは、スマートスイッチのMACアドレスで購読して1を送信するとリレーON、0でOFFします。<br>
 
-# 製品の概要はこちら
+# スマートスイッチ製品の概要はこちら
 https://eiwa-up.jp/product/cloud-computing/smart-switch/<br>
 
