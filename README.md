@@ -1,8 +1,10 @@
 # s-switch
 
 大阪デジモク会で、カズヤさんにスマートスイッチもらったんで、ちょっと改造してみました。<br>
-これ、ESP8266 を使っているので、MicroPython を載せて、MQTTで使えるように改造。<br>
+これ、ESP8266 を使っているので、MicroPython を載せて、MQTTで使えるように改造テスト。<br>
 とりあえず、BROKER = 'broker.emqx.io' に決め打ち<br>
+（今久しぶりにやってみると繋がらなかったので、'broker.hivemq.com'に変えたらOKでした）<br>
+コードはあくまでテストです（いい加減です）。<br>
 2023-09-23 Nishijima<br>
 
 # ハード
