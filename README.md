@@ -13,7 +13,7 @@ LEDB = machine.Pin(14, machine.Pin.OUT) # 青<br>
 RELAY = machine.Pin(15, machine.Pin.OUT) # リレー<br>
 
 # 使い方の概要
-リセットボタンを押し、素早くBTN を押すと（LED赤が点灯）⇒サーバーモードになります。<br>
+リセットボタンを押して指を離した瞬間、素早くBTN を押すと（LED赤が点灯するまで何回かトライください）⇒サーバーモードになります。<br>
 「SmartSwitch」ではじまるWifi ESSIDが出てるので、これに接続し、Webブラウザーで 192.168.4.1 にアクセス、パスワードは micropythoN （最後は大文字）。<br>
 使用する環境に合わせて、wifiとパスワードを設定します。<br>
 MQTTは、スマートスイッチのMACアドレスで購読して1を送信するとリレーON、0でOFFします。<br>
