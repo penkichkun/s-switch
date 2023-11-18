@@ -20,6 +20,7 @@ RELAY = machine.Pin(15, machine.Pin.OUT) # リレー<br>
 使用する環境に合わせて、wifiとパスワードを設定します。<br>
 ![image](https://github.com/penkichkun/s-switch/assets/151262367/4c385db8-2ada-4bf3-8bf2-6432ef250fcd) <br>
 MQTTは、スマートスイッチのMACアドレスで購読して1を送信するとリレーON、0でOFFします。<br>
+僕は、「MQTT Dashboard」というスマホアプリから使っていますが結構便利です。<br>
 
 # スマートスイッチ製品の概要はこちら
 https://eiwa-up.jp/product/cloud-computing/smart-switch/<br>
